@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var port = process.env.PORT || 5000;
+
 
 var app = express();
 
@@ -54,6 +56,12 @@ app.use(function(err, req, res, next) {
     message: err.message,
     error: {}
   });
+});
+
+
+// listens at port and run function on callback
+app.listen(port, function (err) {
+    console.log('running server on port: ' + port);
 });
 
 
